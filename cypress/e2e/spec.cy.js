@@ -90,7 +90,39 @@ describe('Automação de Testes em Formulário de Cadastro', () => {
     cy.contains('Cadastrar').click();
     
     cy.get('form').submit();
-
-
   })
 })
+
+
+// Aula dia 13/03/2025
+describe('Automação de Testes em Formulário de Cadastro', () => {
+  beforeEach(() => {
+  cy.visit('http://127.0.0.1:5500/projeto-cypress/cypress/tarefa2.html');
+});
+
+  it('Verifica se o formulário de cadastro está visível', () => {
+    cy.get('#register-form').should('be.visible');
+  })
+
+  it("Verifica se há 3 inputs na página", () => {
+    cy.get('.input-field').should('have.lenght', 3);
+  });
+
+  it("Verifica se o botão de cadastro contem o texto 'Cadastrar' ", () =>{
+    cy.get('#register-button').should('have.text', 'Cadastrar');
+  });
+
+  it("Verifica se o link de login está presente", () => {
+    cy.get('.login-link').should('exist');
+  });
+
+  it("Preenche os campos de input", () => {
+    cy.get('input[type="text"]').type("Nome Fictício");
+    cy.get('input[type="email"]').type("email@teste.com");
+    cy.get('input[type="password"]').type("Senha123");
+  });
+
+  it("Clica no botão de cadastro", () => {
+    cy.get('#register-button').click();
+  });
+});

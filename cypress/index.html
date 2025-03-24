@@ -1,23 +1,60 @@
 <!DOCTYPE html>
 
-<div class="register-container">
+<html lang="pt-BR">
 
-    <h2>Cadastro</h2>
-  
-    <form id="register-form">
-  
-      <input type="text" placeholder="Nome Completo" class="input-field">
-  
-      <input type="email" placeholder="E-mail" class="input-field">
-  
-      <input type="password" placeholder="Senha" class="input-field">
-  
-     
-  
-      <button id="register-button" class="btn-primary">Cadastrar</button>
-  
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Teste de Formulário</title>
+
+    <script>
+
+        function validarFormulario() {
+
+            document.getElementById('loading').style.display = 'block';
+
+
+
+            setTimeout(() => {
+
+                document.getElementById('loading').style.display = 'none';
+
+                document.getElementById('success-message').style.display = 'block';
+
+            }, 3000);
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <h1>Bem-vindo ao Sistema</h1>
+
+
+
+    <form id="register-form" onsubmit="event.preventDefault(); validarFormulario();">
+
+        <input type="email" placeholder="Digite seu e-mail" required>
+
+        <input type="password" placeholder="Digite sua senha" required>
+
+        <button id="submit-button" type="submit">Cadastrar</button>
+
     </form>
-  
-    <a href="/login" class="login-link">Já tem uma conta? Faça login</a>
 
-  </div>
+
+
+    <p id="loading" style="display: none;">Carregando...</p>
+
+    <p id="success-message" style="display: none;">Cadastro realizado com sucesso!</p>
+
+</body>
+
+</html>
+
